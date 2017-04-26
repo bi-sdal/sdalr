@@ -1,6 +1,6 @@
 con_db <- function(db, user, pass, driver = 'PostgreSQL',
                    host = 'localhost', port = 5432, close_existing_cons = TRUE) {
-    if (driver = 'PostgreSQL') {
+    if (driver == 'PostgreSQL') {
         con_db_postgresql(db, user, pass, host, port, close_existing_cons)
     } else{
         stop("Unknown driver")
