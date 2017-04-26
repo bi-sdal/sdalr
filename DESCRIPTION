@@ -1,11 +1,19 @@
 Package: sdalr
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Convenience functions for the Social and Decision Analytics Lab
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Daniel", "Chen", email = "chend@vt.edu", role = "cre"),
+    person("Aaron", "Schroeder", email = "aschroed@bi.vt.edu", role = "aut"))
+Maintainer: The package maintainer <chend@vt.edu>
+Description: Set of convenience functions used at the
+    Social and Decisoin Analytics Laboratory.
+License: MIT
 Encoding: UTF-8
 LazyData: true
+Imports:
+    grid,
+    RPostgreSQL
+Suggests:
+    tidyverse
+RoxygenNote: 6.0.1
