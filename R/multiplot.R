@@ -1,14 +1,16 @@
-# Multiple plot function
-#
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
-# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-# then plot 1 will go in the upper left, 2 will go in the upper right, and
-# 3 will go all the way across the bottom.
-#
-# This code is taken from the R Graphics Coookbook by Winston Chang
+#' Multiple plot function
+#'
+#' This function is taken from the R Graphics Coookbook by Winston Chang.
+#' It lays out multiple ggplot objects into a single figure.
+#' @param ... ggplot objects
+#' @param plotlist if individual ggplot objects are not passed into \code{...},
+#'                 then a \code{list} of ggplot objects can also be passed
+#' @param file
+#' @param cols number of columns used to layout the plots, defaults to \code{`1`}
+#' @param layout a matrix specifying the layout. If present, 'cols' is ignored.
+#'               If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+#'               then plot 1 will go in the upper left, 2 will go in the upper right,
+#'               and 3 will go all the way across the bottom.
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     library(grid)
 

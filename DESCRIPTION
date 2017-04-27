@@ -15,5 +15,6 @@ Imports:
     grid,
     RPostgreSQL
 Suggests:
-    tidyverse
+    tidyverse,
+    ggplot2
 RoxygenNote: 6.0.1
