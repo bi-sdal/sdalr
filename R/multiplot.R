@@ -5,7 +5,7 @@
 #' @param ... ggplot objects
 #' @param plotlist if individual ggplot objects are not passed into \code{...},
 #'                 then a \code{list} of ggplot objects can also be passed
-#' @param file
+#' @param file file?
 #' @param cols number of columns used to layout the plots, defaults to \code{`1`}
 #' @param layout a matrix specifying the layout. If present, 'cols' is ignored.
 #'               If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
