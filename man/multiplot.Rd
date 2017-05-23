@@ -12,6 +12,8 @@ multiplot(..., plotlist = NULL, file, cols = 1, layout = NULL)
 \item{plotlist}{if individual ggplot objects are not passed into \code{...},
 then a \code{list} of ggplot objects can also be passed}
 
+\item{file}{file?}
+
 \item{cols}{number of columns used to layout the plots, defaults to \code{`1`}}
 
 \item{layout}{a matrix specifying the layout. If present, 'cols' is ignored.
