@@ -15,7 +15,11 @@ Imports:
     grid,
     RPostgreSQL,
     jsonlite,
-    data.table
+    data.table,
+    geosphere,
+    sp,
+    maps,
+    maptools
 Suggests:
     tidyverse,
     ggplot2
