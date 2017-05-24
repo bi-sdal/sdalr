@@ -10,6 +10,8 @@ library(geosphere)
 #' @param lat_bearing distance to move lat (in feet?)
 #' @param distance distance
 #' @param state state
+#'
+#' @export
 latlongrid <- function(box_lower_left_lon, box_lower_left_lat,
                        box_upper_right_lon, box_upper_right_lat,
                        lon_bearing,

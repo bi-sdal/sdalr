@@ -12,6 +12,7 @@
 #' @param port the port where the database in running, defaults to '5432'
 #' @param close_existing_cons whether to close existing database connections, defaults to 'TRUE'
 #' @return a database connection
+#' @export
 #' @examples
 #' con_db('sample_db', 'dan', 'isawesome')
 con_db <- function(db, user, pass, driver = 'PostgreSQL',

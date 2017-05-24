@@ -7,6 +7,8 @@ library(maptools)
 #' @param pointsdF data.frame in which:
 #' column 1 contains the longitude in degrees (negative in the US) AND
 #' column 2 contains the latitude in degrees
+#'
+#' @export
 latlong2state <- function(pointsDF) {
     # Prepare SpatialPolygons object with one SpatialPolygon
     # per state (plus DC, minus HI & AK)

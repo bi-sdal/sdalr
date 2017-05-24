@@ -6,6 +6,8 @@ library(data.table)
 #' @param place_id some unique identifier for the lat lon
 #' @param lat the latitude
 #' @param lon the longitude
+#'
+#' @export
 FCClocation2FIPS <- function(place_id, lat, lon) {
     json_string <- sprintf('http://data.fcc.gov/api/block/find?format=json&latitude=%s&longitude=%s&showall=true&format=JSON',
                            lat, lon)
@@ -27,6 +29,8 @@ FCClocation2FIPS <- function(place_id, lat, lon) {
 #' @param place_idCol vector of unique identifiers
 #' @param latCol vector of latitudes
 #' @param lonCol vector of longitudes
+#'
+#' @export
 FCClocations2FIPS <- function(place_idCol, latCol, lonCol) {
     res <- as.data.table(t(mapply(FCClocation2FIPS, place_idCol, lonCol, latCol)))
     data.table(place_id = unlist(res$place_id),
