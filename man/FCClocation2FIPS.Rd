@@ -16,3 +16,4 @@ FCClocation2FIPS(place_id, lat, lon)
 \description{
 Convert FCC location to FIPS code
 }
+

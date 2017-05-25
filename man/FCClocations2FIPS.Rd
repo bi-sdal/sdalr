@@ -16,3 +16,4 @@ FCClocations2FIPS(place_idCol, latCol, lonCol)
 \description{
 Convert multiple FCC locations to FIPS codes
 }
+
