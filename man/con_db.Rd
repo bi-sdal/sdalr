@@ -21,7 +21,7 @@ con_db(dbname, user, driver = "PostgreSQL", host = "postgresql",
 \item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'}
 }
 \value{
-a database connection
+database connection
 }
 \description{
 Creates a connection to a database.
@@ -30,5 +30,11 @@ This function is really a high-level function that calls the corresponding
 }
 \examples{
 con_db('sample_db', 'dan', 'isawesome')
+
+\dontrun{
+con <- sdalr::con_db(dbname = 'arlington', user = 'chend')
+df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")
+head(df)
+}
 }
 

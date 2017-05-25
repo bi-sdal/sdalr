@@ -9,9 +9,18 @@ get_placeid_details(place_id, ...)
 \arguments{
 \item{place_id}{the placeid}
 
-\item{...}{optional. parameters passed into sdal::get_google_maps_key}
+\item{...}{optional parameters passed into sdal::get_google_maps_key}
+}
+\value{
+list
 }
 \description{
 Get detailed information about a Google Maps place_id
+}
+\examples{
+sdalr::get_placeid_details('ChIJEauYKUKVTYgR03YCLT7SLeY')
+
+sdalr::get_placeid_details('ChIJEauYKUKVTYgR03YCLT7SLeY',
+                           file = '~/google_maps_api_key.txt')
 }
 

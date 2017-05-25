@@ -10,7 +10,15 @@
 \arguments{
 \item{file}{location of the google maps key file by default it points to the location in the sdal server}
 }
+\value{
+string
+}
 \description{
 So it's not accidentently pushed in the code
+}
+\examples{
+get_google_maps_key()
+
+get_google_maps_key('~/google_maps_api_key.txt')
 }
 

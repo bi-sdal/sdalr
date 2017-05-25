@@ -10,10 +10,16 @@
 #' @param host where the database is running, defaults to 'postgresql'
 #' @param port the port where the database in running, defaults to '5432' for PostgreSQL
 #' @param close_existing_cons whether to close existing database connections, defaults to 'TRUE'
-#' @return a database connection
+#' @return database connection
 #' @export
 #' @examples
 #' con_db('sample_db', 'dan', 'isawesome')
+#'
+#' \dontrun{
+#' con <- sdalr::con_db(dbname = 'arlington', user = 'chend')
+#' df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")
+#' head(df)
+#' }
 con_db <- function(dbname, user, driver = 'PostgreSQL',
                    host = 'postgresql', port = 5432, close_existing_cons = TRUE) {
     pass <- .rs.askForPassword("database password")
@@ -26,6 +32,7 @@ con_db <- function(dbname, user, driver = 'PostgreSQL',
 }
 
 #' Makes a connection to a postgresql database
+#' @return postgresql database connection
 #' @export
 .con_db_postgresql <- function(dbname, user, pass, host, port, close_existing_cons) {
     drv <- RPostgreSQL::PostgreSQL()

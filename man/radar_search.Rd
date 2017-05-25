@@ -17,7 +17,18 @@ radar_search(lat, lon, type_search_string, radius = 1609, ...)
 
 \item{...}{optional. parameters passed into sdal::get_google_maps_key}
 }
+\value{
+list
+}
 \description{
 Uses the google maps api which will require an API key
+}
+\examples{
+sdalr::radar_search(lat = 37.231264, lon = -80.426745,
+                    type_search_string = 'grocery_or_supermarket')
+
+sdalr::radar_search(lat = 37.231264, lon = -80.426745,
+                    type_search_string = 'grocery_or_supermarket',
+                    file = '~/google_maps_api_key.txt')
 }
 

@@ -13,7 +13,13 @@ FCClocation2FIPS(place_id, lat, lon)
 
 \item{lon}{the longitude}
 }
+\value{
+data.table
+}
 \description{
 Convert FCC location to FIPS code
+}
+\examples{
+sdalr::FCClocation2FIPS("VTRC", lat=38.880807, lon=-77.11577)
 }
 
