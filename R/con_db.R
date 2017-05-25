@@ -15,10 +15,11 @@
 #' @export
 #' @examples
 #' con_db('sample_db', 'dan', 'isawesome')
-con_db <- function(db, user, pass, driver = 'PostgreSQL',
+con_db <- function(db, user, driver = 'PostgreSQL',
                    host = 'localhost', port = 5432, close_existing_cons = TRUE) {
+    pass <- .rs.askForPassword("database password")
     if (driver == 'PostgreSQL') {
-        con_db_postgresql(db, user, pass, host, port, close_existing_cons)
+        sdalr::con_db_postgresql(db, user, pass, host, port, close_existing_cons)
     } else{
         stop("Unknown driver")
     }

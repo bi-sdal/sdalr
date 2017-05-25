@@ -4,15 +4,13 @@
 \alias{con_db}
 \title{Makes a connection to a database.}
 \usage{
-con_db(db, user, pass, driver = "PostgreSQL", host = "localhost",
-  port = 5432, close_existing_cons = TRUE)
+con_db(db, user, driver = "PostgreSQL", host = "localhost", port = 5432,
+  close_existing_cons = TRUE)
 }
 \arguments{
 \item{db}{the name of the database you want to connect to}
 
 \item{user}{the username for the database connection}
-
-\item{pass}{the password for the database connection}
 
 \item{driver}{the database driver to use, defaults to 'PostgreSQL'}
 
@@ -21,6 +19,8 @@ con_db(db, user, pass, driver = "PostgreSQL", host = "localhost",
 \item{port}{the port where the database in running, defaults to '5432'}
 
 \item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'}
+
+\item{pass}{the password for the database connection}
 }
 \value{
 a database connection
@@ -33,3 +33,4 @@ This function is really a high-level function that calls the corresponding
 \examples{
 con_db('sample_db', 'dan', 'isawesome')
 }
+
