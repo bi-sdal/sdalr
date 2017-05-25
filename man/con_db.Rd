@@ -4,23 +4,21 @@
 \alias{con_db}
 \title{Makes a connection to a database.}
 \usage{
-con_db(db, user, driver = "PostgreSQL", host = "localhost", port = 5432,
-  close_existing_cons = TRUE)
+con_db(dbname, user, driver = "PostgreSQL", host = "postgresql",
+  port = 5432, close_existing_cons = TRUE)
 }
 \arguments{
-\item{db}{the name of the database you want to connect to}
+\item{dbname}{the name of the database you want to connect to}
 
 \item{user}{the username for the database connection}
 
 \item{driver}{the database driver to use, defaults to 'PostgreSQL'}
 
-\item{host}{where the database is running, defaults to 'localhost'}
+\item{host}{where the database is running, defaults to 'postgresql'}
 
-\item{port}{the port where the database in running, defaults to '5432'}
+\item{port}{the port where the database in running, defaults to '5432' for PostgreSQL}
 
 \item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'}
-
-\item{pass}{the password for the database connection}
 }
 \value{
 a database connection
