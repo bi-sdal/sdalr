@@ -24,4 +24,3 @@ sdalr::FCClocations2FIPS(place_idCol = c("VTRC", "VT-NVC"),
                          latCol = c(38.880807, 38.8968325),
                          lonCol = c(-77.11577, -77.1894815))
 }
-

@@ -25,4 +25,3 @@ and 3 will go all the way across the bottom.}
 This function is taken from the R Graphics Coookbook by Winston Chang.
 It lays out multiple ggplot objects into a single figure.
 }
-

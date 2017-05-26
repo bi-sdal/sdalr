@@ -27,4 +27,3 @@ latlongrid(box_lower_left_lon, box_lower_left_lat, box_upper_right_lon,
 \description{
 Create a grid for a specified state
 }
-

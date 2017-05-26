@@ -31,4 +31,3 @@ sdalr::radar_search(lat = 37.231264, lon = -80.426745,
                     type_search_string = 'grocery_or_supermarket',
                     file = '~/google_maps_api_key.txt')
 }
-

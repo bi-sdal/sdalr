@@ -23,4 +23,3 @@ sdalr::get_placeid_details('ChIJEauYKUKVTYgR03YCLT7SLeY')
 sdalr::get_placeid_details('ChIJEauYKUKVTYgR03YCLT7SLeY',
                            file = '~/google_maps_api_key.txt')
 }
-

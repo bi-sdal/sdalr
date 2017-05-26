@@ -22,4 +22,3 @@ Convert FCC location to FIPS code
 \examples{
 sdalr::FCClocation2FIPS("VTRC", lat=38.880807, lon=-77.11577)
 }
-

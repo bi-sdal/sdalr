@@ -21,4 +21,3 @@ get_google_maps_key()
 
 get_google_maps_key('~/google_maps_api_key.txt')
 }
-

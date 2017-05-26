@@ -14,4 +14,3 @@ column 2 contains the latitude in degrees}
 \description{
 Return a state for a data.frame of lat lon values
 }
-
