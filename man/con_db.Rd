@@ -5,7 +5,7 @@
 \title{Makes a connection to a database.}
 \usage{
 con_db(dbname, user, driver = "PostgreSQL", host = "postgresql",
-  port = 5432, close_existing_cons = TRUE)
+  port = 5432, close_existing_cons = TRUE, pass = NULL)
 }
 \arguments{
 \item{dbname}{the name of the database you want to connect to}
@@ -19,6 +19,8 @@ con_db(dbname, user, driver = "PostgreSQL", host = "postgresql",
 \item{port}{the port where the database in running, defaults to '5432' for PostgreSQL}
 
 \item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'}
+
+\item{pass}{optional. directly pass a password to the database without rstudio password prompt}
 }
 \value{
 database connection
@@ -37,4 +39,3 @@ df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013"
 head(df)
 }
 }
-

@@ -10,6 +10,7 @@
 #' @param host where the database is running, defaults to 'postgresql'
 #' @param port the port where the database in running, defaults to '5432' for PostgreSQL
 #' @param close_existing_cons whether to close existing database connections, defaults to 'TRUE'
+#' @param pass optional. directly pass a password to the database without rstudio password prompt
 #' @return database connection
 #' @export
 #' @examples
@@ -21,8 +22,14 @@
 #' head(df)
 #' }
 con_db <- function(dbname, user, driver = 'PostgreSQL',
-                   host = 'postgresql', port = 5432, close_existing_cons = TRUE) {
-    pass <- .rs.askForPassword("database password")
+                   host = 'postgresql', port = 5432, close_existing_cons = TRUE,
+                   pass = NULL) {
+    if (is.null(pass)) {
+        pass <- .rs.askForPassword("database password")
+    } else {
+        pass <- pass
+    }
+
     if (driver == 'PostgreSQL') {
         sdalr::.con_db_postgresql(dbname, user, pass, host, port, close_existing_cons)
     } else{
