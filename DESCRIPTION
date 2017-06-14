@@ -20,7 +20,9 @@ Imports:
     geosphere,
     sp,
     maps,
-    maptools
+    maptools,
+    tmaptools,
+    tools
 Suggests:
     tidyverse,
     ggplot2
