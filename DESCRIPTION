@@ -1,7 +1,7 @@
 Package: sdalr
 Type: Package
 Title: Convenience functions for the Social and Decision Analytics Lab
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Daniel", "Chen", email = "chend@vt.edu", role = "cre"),
     person("Aaron", "Schroeder", email = "aschroed@bi.vt.edu", role = "aut"))
