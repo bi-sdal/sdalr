@@ -31,7 +31,7 @@ con_db <- function(dbname, user, driver = 'PostgreSQL',
     }
 
     if (driver == 'PostgreSQL') {
-        sdalr::.con_db_postgresql(dbname, user, pass, host, port, close_existing_cons)
+        sdalr::con_db_postgresql(dbname, user, pass, host, port, close_existing_cons)
     } else{
         stop("Unknown driver")
     }
@@ -40,8 +40,8 @@ con_db <- function(dbname, user, driver = 'PostgreSQL',
 
 #' Makes a connection to a postgresql database
 #' @return postgresql database connection
-#'
-.con_db_postgresql <- function(dbname, user, pass, host, port, close_existing_cons) {
+#' @export
+con_db_postgresql <- function(dbname, user, pass, host, port, close_existing_cons) {
     drv <- RPostgreSQL::PostgreSQL()
 
     if (close_existing_cons) {

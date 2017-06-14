@@ -3,6 +3,7 @@
 export(FCClocation2FIPS)
 export(FCClocations2FIPS)
 export(con_db)
+export(con_db_postgresql)
 export(get_google_maps_key)
 export(get_placeid_details)
 export(latlong2state)
