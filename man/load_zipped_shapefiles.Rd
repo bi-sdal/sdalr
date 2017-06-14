@@ -21,3 +21,7 @@ load_zipped_shapefiles(shapefile_dir, prefix, delete_zip = TRUE,
 \description{
 Load all files in a directory into an environment with a given prefix
 }
+\examples{
+load_zipped_shapefiles("data/shapefiles/zip", "arl_")
+
+}
