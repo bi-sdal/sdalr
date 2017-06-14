@@ -4,14 +4,15 @@
 \alias{load_zipped_shapefile}
 \title{Load a compressed shapefile}
 \usage{
-load_zipped_shapefile(filepath, prefix, delete_zip = TRUE, env = .GlobalEnv)
+load_zipped_shapefile(filepath, prefix, delete_unzip = TRUE,
+  env = .GlobalEnv)
 }
 \arguments{
 \item{filepath}{path to the zip file}
 
 \item{prefix}{prefix for the loaded shapefile when it is loaded in the environment}
 
-\item{delete_zip}{boolean on whether to delete the original zip file (default TRUE)}
+\item{delete_unzip}{boolean on whether to delete the extracted zip file (default TRUE)}
 
 \item{env}{environment where the file will be loaded into (default to .GlobalEnv)}
 }

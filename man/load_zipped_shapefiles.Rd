@@ -4,7 +4,7 @@
 \alias{load_zipped_shapefiles}
 \title{Load all files in a directory into an environment with a given prefix}
 \usage{
-load_zipped_shapefiles(shapefile_dir, prefix, delete_zip = TRUE,
+load_zipped_shapefiles(shapefile_dir, prefix, delete_unzip = TRUE,
   env = .GlobalEnv, verbose = TRUE)
 }
 \arguments{
@@ -12,7 +12,7 @@ load_zipped_shapefiles(shapefile_dir, prefix, delete_zip = TRUE,
 
 \item{prefix}{prefix for the loaded shapefile when it is loaded in the environment}
 
-\item{delete_zip}{boolean on whether to delete the original zip files (default TRUE)}
+\item{delete_unzip}{boolean on whether to delete the extracted zip files (default TRUE)}
 
 \item{env}{environment where the file will be loaded into (default to .GlobalEnv)}
 
