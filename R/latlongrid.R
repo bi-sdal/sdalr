@@ -9,9 +9,7 @@ library(tigris)
 #' @param state_fips state FIPS code
 #'
 #' @export
-latlongrid <- function(#box_lower_left_lon, box_lower_left_lat,
-                       #box_upper_right_lon, box_upper_right_lat,
-                       lon_bearing = 90,
+latlongrid <- function(lon_bearing = 90,
                        lat_bearing = 0,
                        distance = 1000,
                        state_fips){
