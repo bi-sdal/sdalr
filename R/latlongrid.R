@@ -1,28 +1,31 @@
 library(geosphere)
+library(tigris)
 
 #' Create a grid for a specified state
 #'
-#' @param box_lower_left_lon longitude for lower left corner
-#' @param box_lower_left_lat latitude for lower left cornet
-#' @param box_upper_right_lon longitude for upper right corner
-#' @param box_upper_right_lat latitude for upper right corner
 #' @param lon_bearing distance to move lon (in feet?)
 #' @param lat_bearing distance to move lat (in feet?)
 #' @param distance distance
-#' @param state state
+#' @param state_fips state FIPS code
 #'
 #' @export
-latlongrid <- function(box_lower_left_lon, box_lower_left_lat,
-                       box_upper_right_lon, box_upper_right_lat,
-                       lon_bearing,
-                       lat_bearing,
-                       distance,
-                       state){
+latlongrid <- function(#box_lower_left_lon, box_lower_left_lat,
+                       #box_upper_right_lon, box_upper_right_lat,
+                       lon_bearing = 90,
+                       lat_bearing = 0,
+                       distance = 1000,
+                       state_fips){
     # define box
     #lower_left <- data.frame(cbind(-83.913574, 36.474307))
-    lower_left <- data.frame(cbind(box_lower_left_lon, box_lower_left_lat))
+
+    us_states <- states()
+    chosen_state <- us_states[us_states@data$STATEFP==state_fips,]
+    lower_left <- data.frame(cbind(chosen_state@bbox[1,1], chosen_state@bbox[2,1]))
+    upper_right <- data.frame(cbind(chosen_state@bbox[2,1], chosen_state@bbox[2,2]))
+
+    #lower_left <- data.frame(cbind(box_lower_left_lon, box_lower_left_lat))
     #upper_right <- data.frame(cbind(-75.058594, 39.690281))
-    upper_right <- data.frame(cbind(box_upper_right_lon, box_upper_right_lat))
+    #upper_right <- data.frame(cbind(box_upper_right_lon, box_upper_right_lat))
 
     #define bearings and distance
     #lon_bearing <- 90
@@ -33,10 +36,6 @@ latlongrid <- function(box_lower_left_lon, box_lower_left_lat,
 
     #dis <- 1000
     dis <- distance
-
-    #define State
-    #state <- "virginia"
-    state <- state
 
     # generate lats
     lon <- lower_left[,1]
@@ -65,9 +64,11 @@ latlongrid <- function(box_lower_left_lon, box_lower_left_lat,
     # generate lon, lat cross join
     dt_lons_lats <- data.table::CJ(Lon=dt_lons[,Lon], Lat=dt_lats[,Lat])
 
-    # add State name for all points
-    dt_lons_lats[,State:=latlong2state(dt_lons_lats)]
+    # add State & County names for all points
+    states_counties <- latlong2county(dt_lons_lats, state_fips)
+    dt_lons_lats[,STATEFP:=states_counties$STATEFP]
+    dt_lons_lats[,COUNTYFP:=states_counties$COUNTYFP]
 
     # select only chosen State
-    dt_lons_lats_state <- dt_lons_lats[State==state, .(Lon, Lat)]
+    dt_lons_lats_state <- dt_lons_lats[STATEFP==state_fips,]
 }

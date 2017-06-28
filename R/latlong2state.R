@@ -2,29 +2,19 @@ library(sp)
 library(maps)
 library(maptools)
 
-#' Return a state for a data.frame of lat lon values
-
-#' @param pointsdF data.frame in which:
-#' column 1 contains the longitude in degrees (negative in the US) AND
-#' column 2 contains the latitude in degrees
-#'
-#' @export
+#' Return a data.frame of states of lat lon values
 latlong2state <- function(pointsDF) {
-    # Prepare SpatialPolygons object with one SpatialPolygon
-    # per state (plus DC, minus HI & AK)
-    states <- map('state', fill=TRUE, col="transparent", plot=FALSE)
-    IDs <- sapply(strsplit(states$names, ":"), function(x) x[1])
-    states_sp <- map2SpatialPolygons(states, IDs=IDs,
-                                     proj4string=CRS("+proj=longlat +datum=WGS84"))
+    us_states <- tigris::states()
+    pointsDF_sp <- SpatialPoints(pointsDF)
+    proj4string(pointsDF_sp) <- proj4string(us_states)
+    indices <- over(pointsDF_sp, us_states)
+    data.frame(STATE_NAME=indices$NAME)
+}
 
-    # Convert pointsDF to a SpatialPoints object
-    pointsSP <- SpatialPoints(pointsDF,
-                              proj4string=CRS("+proj=longlat +datum=WGS84"))
-
-    # Use 'over' to get _indices_ of the Polygons object containing each point
-    indices <- over(pointsSP, states_sp)
-
-    # Return the state names of the Polygons object containing each point
-    stateNames <- sapply(states_sp@polygons, function(x) x@ID)
-    stateNames[indices]
+latlong2county <- function(pointsDF, state_FIPS) {
+  state_counties <- tigris::counties(state = state_FIPS)
+  pointsDF_sp <- SpatialPoints(pointsDF)
+  proj4string(pointsDF_sp) <- proj4string(state_counties)
+  indices <- over(pointsDF_sp, state_counties)
+  data.frame(COUNTYFP=indices$COUNTYFP, STATEFP=indices$STATEFP)
 }
