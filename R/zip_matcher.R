@@ -1,7 +1,3 @@
-library(acs)
-library(dplyr)
-library(stringr)
-
 #'Filter ACS zipcodes to the ones you want
 #'
 #'When you pull the ACS data table by zipcodes, it will provide zipcodes all over the
@@ -20,6 +16,9 @@ library(stringr)
 #' @param ziplist A character vector of zipcodes to filter ACS variables by. Can be numeric vector if there are no leading zeros.
 #' @return dataframe that returns 3 columns. First column is the zip code from ziplist. Second column is the variable estimate from the table code and end year. Thrid column is the standard error of the second column from the table code and end year.
 #' @export
+#' @import acs
+#' @import dplyr
+#' @import stringr
 #' @examples
 #' pop_age_group_2015 <- zip_matcher("B01003",2015, c("22030", "22031"))
 #'
