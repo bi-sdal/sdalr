@@ -22,7 +22,10 @@ Imports:
     maps,
     maptools,
     tmaptools,
-    tools
+    tools,
+    acs,
+    dplyr,
+    stringr
 Suggests:
     tidyverse,
     ggplot2
