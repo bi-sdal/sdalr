@@ -4,25 +4,16 @@
 \alias{latlongrid}
 \title{Create a grid for a specified state}
 \usage{
-latlongrid(box_lower_left_lon, box_lower_left_lat, box_upper_right_lon,
-  box_upper_right_lat, lon_bearing, lat_bearing, distance, state)
+latlongrid(lon_bearing = 90, lat_bearing = 0, distance = 1000, state_fips)
 }
 \arguments{
-\item{box_lower_left_lon}{longitude for lower left corner}
-
-\item{box_lower_left_lat}{latitude for lower left cornet}
-
-\item{box_upper_right_lon}{longitude for upper right corner}
-
-\item{box_upper_right_lat}{latitude for upper right corner}
-
 \item{lon_bearing}{distance to move lon (in feet?)}
 
 \item{lat_bearing}{distance to move lat (in feet?)}
 
 \item{distance}{distance}
 
-\item{state}{state}
+\item{state_fips}{state FIPS code}
 }
 \description{
 Create a grid for a specified state
