@@ -1,16 +1,32 @@
-.get_all_files <- function(proj_dir) {
+#' Recursively get all files in a given path
+#'
+#' @param proj_dir: root path to start recursive search
+#' @return character vector of files
+get_all_files <- function(proj_dir) {
     return(list.files(path = proj_dir, all.files = TRUE, recursive = TRUE))
 }
 
-.get_dir_files <- function(folder) {
+#' Non-recursively get files in a give path
+#'
+#' @param folder: root path to look for files
+#' @return character vector of files
+get_dir_files <- function(folder) {
     return(list.files(path = folder, all.files = TRUE, no.. = TRUE))
 }
 
+#' Checks the root project folder structure
+#'
+#' @param proj_dir: root project directory
+#' @param should_contain_exactly: files or folders that should exist here
+#' @param should_contain_pattern: regex pattern of files or folders that should exist here
+#' @param verbose: boolean whether statements should be printed
+#'
+#' @return list of values
 check_proj_top_level <- function(proj_dir,
                                  should_contain_exactly = c('.git', '.gitignore', 'data', 'output', 'src'),
                                  should_contain_pattern = c('*.rproj$', '^readme*'),
                                  verbose = FALSE) {
-    top_level_files <- .get_dir_files(proj_dir)
+    top_level_files <- get_dir_files(proj_dir)
 
     all_exactly <- all(should_contain_exactly %in% top_level_files)
 
@@ -42,6 +58,16 @@ check_proj_top_level <- function(proj_dir,
     ))
 }
 
+#' Check source folder for abnormal files
+#'
+#' @param proj_dir: root project directory
+#' @param r_files_patterns: vector of regular expressions to match R script files
+#' @param ignore_patterns: vector of regular expressions of files to ignore in the source folder
+#' @param data_patterns: vector of regular expressions to look for data files that should not exist in a source folder
+#' @param pattern_ignore_case: bool on whether or not to ignore case when doing regex match
+#' @param verbose: bool on whether to print statements
+#'
+#' @return list of values
 check_src_folder <- function(proj_dir,
                              r_files_patterns = c('*.r$', '*.rmd$'),
                              ignore_patterns = c('.gitignore', 'readme*', '*.py'),
@@ -49,7 +75,7 @@ check_src_folder <- function(proj_dir,
                              pattern_ignore_case = TRUE,
                              verbose = FALSE) {
     src_path <- normalizePath(sprintf('%s/src', proj_dir))
-    all_src_files <- .get_all_files(src_path)
+    all_src_files <- get_all_files(src_path)
 
     pattern_data <- paste(data_patterns, collapse = "|")
     found_data <- grepl(pattern_data, all_src_files, ignore.case = pattern_ignore_case)
@@ -75,11 +101,19 @@ check_src_folder <- function(proj_dir,
     ))
 }
 
+#' Check the top level data directory
+#'
+#' @param proj_dir: root project directory
+#' @param ignore_patterns: vector of regular expressions to ignore
+#' @param pattern_ignore_case: boolean on wether to ignore case in regular expression match
+#' @param verbose: boolean on whether or not to print statements
+#'
+#' @return list of values
 check_data_lvl_1 <- function(proj_dir,
                              ignore_patterns = c('^\\d{2}', '^readme'),
                              pattern_ignore_case = TRUE,
                              verbose = FALSE) {
-    data_1_files <- .get_dir_files(normalizePath(sprintf('%s/data', proj_dir)))
+    data_1_files <- get_dir_files(normalizePath(sprintf('%s/data', proj_dir)))
 
     pattern <- paste(ignore_patterns, collapse = '|')
     found <- grepl(pattern, data_1_files, ignore.case = pattern_ignore_case)
@@ -94,6 +128,12 @@ check_data_lvl_1 <- function(proj_dir,
     ))
 }
 
+#' Check the root working directory
+#'
+#' @param base_dir: base directory to check working directories
+#' @param verbose: boolean on whether to print statements
+#'
+#' @return list of values
 check_wd <- function(base_dir =  getwd(),
                      verbose = FALSE) {
     cwd <- base_dir
@@ -124,7 +164,7 @@ check_wd <- function(base_dir =  getwd(),
 
 
 # EXAMPLE_PATH <- '~/git/lab/dspg_17/oss'
-# .get_dir_files(EXAMPLE_PATH)
+# get_dir_files(EXAMPLE_PATH)
 #
 # check_wd(EXAMPLE_PATH)
 #
@@ -133,12 +173,19 @@ check_wd <- function(base_dir =  getwd(),
 # check_data_lvl_1(EXAMPLE_PATH)
 
 
+#' Performs a project template audit
 #'
-#'@export
+#' @param project_path: base directory to start project template audit
+#' @param verbose: boolean on whether to print statments
+#' @param print_results: boolean to print_results
+#'
+#' @return nothing, just prints a report
+#'
+#' @export
 project_audit <- function(project_path = getwd(),
                           verbose = FALSE,
                           print_results = FALSE){
-    # .get_dir_files(project_path)
+    # get_dir_files(project_path)
     wd_status <- check_wd(project_path, verbose = verbose)
     proj_top_level_status <- check_proj_top_level(project_path, verbose = verbose)
     src_folder_status <- check_src_folder(project_path, verbose = verbose)
