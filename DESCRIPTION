@@ -1,11 +1,11 @@
 Package: sdalr
 Type: Package
 Title: Convenience functions for the Social and Decision Analytics Lab
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(
     person("Daniel", "Chen", email = "chend@vt.edu", role = "cre"),
     person("Aaron", "Schroeder", email = "aschroed@bi.vt.edu", role = "aut"))
-Maintainer: The package maintainer <chend@vt.edu>
+Maintainer: Daniel Chen <chend@vt.edu>
 Description: Set of convenience functions used at the
     Social and Decisoin Analytics Laboratory.
 License: MIT
@@ -25,7 +25,8 @@ Imports:
     tools,
     acs,
     dplyr,
-    stringr
+    stringr,
+    tigris
 Suggests:
     tidyverse,
     ggplot2
