@@ -17,7 +17,7 @@ FCClocation2FIPS <- function(place_id, lat, lon) {
     if (length(lat) > 1) {stop('you supplied multiple values for lat, did you mean to use FCClocations2FIPS?')}
     if (length(lon) > 1) {stop('you supplied multiple values for lon, did you mean to use FCClocations2FIPS?')}
 
-    res <- fromJSON(json_string)
+    res <- jsonlite::fromJSON(json_string)
     data.table::data.table(place_id = place_id,
                            state_name = res$State$name,
                            state_fips = res$State$FIPS,
