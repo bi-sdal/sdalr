@@ -55,7 +55,10 @@ renumber_file <- function(file_name, number_match_pattern, pad_width, verbose=TR
 #' @export
 #'
 #' @examples
-#' rename_script_numbers()
+#' rename_script_numbers(path = '~/git/lab/dspg_17/oss/data/oss/original/openhub/users/user_tables/',
+#'                       number_match_pattern = '\\d*\\.RData$',
+#'                       pad_width = 3,
+#'                       rfile_pattern = '*.[rRdD]ata')
 rename_script_numbers <- function(path, number_match_pattern, pad_width,
                                   rfile_pattern = '*.[rR]$',
                                   dry_run = TRUE,
