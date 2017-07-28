@@ -15,7 +15,9 @@
 #' @references Alberto Cairo (2016) Download the Datasaurus: Never trust summary statistics alone; always visualize your data
 #' (\href{http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html}{})
 #'
-#' @source \href{http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html}{}
+#' @source \href{http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html}{
+#' http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
+#' }
 #'
 #' @examples
 #' data(anscombosaurus)

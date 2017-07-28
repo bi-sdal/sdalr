@@ -6,7 +6,9 @@
 \title{Anscombe goes rawr!}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 142 rows and 2 columns.}
 \source{
-\href{http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html}{}
+\href{http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html}{
+http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html
+}
 }
 \usage{
 data(anscombosaurus)

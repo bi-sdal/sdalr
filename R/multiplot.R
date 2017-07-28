@@ -1,3 +1,5 @@
+library(grid)
+
 #' Multiple plot function
 #'
 #' This function is taken from the R Graphics Coookbook by Winston Chang.
@@ -14,8 +16,6 @@
 #'
 #' @export
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-    library(grid)
-
     # Make a list from the ... arguments and plotlist
     plots <- c(list(...), plotlist)
 
