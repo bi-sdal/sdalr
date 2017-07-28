@@ -8,4 +8,13 @@ test_that("Renaming script numbers", {
                                 pad_width = 3,
                                 verbose = FALSE)
     expect_equal(calculated, expected)
+
+
+    expected <- "001-my_script.R"
+    calculated <- renumber_file(file_name = "1-my_script.R",
+                                number_match_pattern = '^\\d*-',
+                                pad_width = 3,
+                                verbose = FALSE)
+    expect_equal(calculated, expected)
+
 })
