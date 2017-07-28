@@ -27,5 +27,8 @@ only prints out pre and post file names}
 Iteratively renames files in a directory using the `renumber_file` function
 }
 \examples{
-rename_script_numbers()
+rename_script_numbers(path = '~/git/lab/dspg_17/oss/data/oss/original/openhub/users/user_tables/',
+                      number_match_pattern = '\\\\d*\\\\.RData$',
+                      pad_width = 3,
+                      rfile_pattern = '*.[rRdD]ata')
 }
