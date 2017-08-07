@@ -31,4 +31,4 @@ Suggests:
     tidyverse,
     ggplot2,
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.0
