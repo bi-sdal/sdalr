@@ -69,16 +69,19 @@ rename_script_numbers <- function(path, number_match_pattern, pad_width,
         original_fn <- basename(fn)
         new_fn <- renumber_file(file_name = original_fn, number_match_pattern = number_match_pattern,
                                 pad_width = pad_width, verbose = verbose)
+
+        orginal_path <- normalizePath(paste0(dirname(fn), '/', original_fn))
+        new_path <- normalizePath(paste0(dirname(fn), '/', new_fn))
         if (verbose) {
-            print(sprintf('renaming file FROM: %s --------> TO: %s', original_fn, new_fn))
+            print(sprintf('renaming file FROM: %s --------> TO: %s', orginal_path, new_path))
         }
 
         if (dry_run) {
             # don't actually do anything, just print
-            print(sprintf('renaming file FROM: %s --------> TO: %s', original_fn, new_fn))
+            print(sprintf('renaming file FROM: %s --------> TO: %s', orginal_path, new_path))
         } else {
             # actually rename the files
-            file.rename(original_fn, new_fn)
+            file.rename(orginal_path, new_path)
             if (verbose) {print('File renamed')}
         }
     }
