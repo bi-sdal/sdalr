@@ -1,7 +1,7 @@
 Package: sdalr
 Type: Package
 Title: Convenience functions for the Social and Decision Analytics Lab
-Version: 0.6.1
+Version: 0.7.0
 Authors@R: c(
     person("Daniel", "Chen", email = "chend@vt.edu", role = "cre"),
     person("Aaron", "Schroeder", email = "aschroed@bi.vt.edu", role = "aut"))
@@ -31,4 +31,4 @@ Suggests:
     tidyverse,
     ggplot2,
     testthat
-RoxygenNote: 7.0.0
+RoxygenNote: 6.0.1

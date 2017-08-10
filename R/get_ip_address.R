@@ -12,6 +12,7 @@
 #' @export
 #' @examples
 #' get_ip_address()
+#' get_ip_address(con_pattern = 'wlp3s0')
 get_ip_address <- function(cmd = 'ip address',
                            ip_pattern = '(\\d{1,3}\\.){3}\\d{1,3}',
                            con_pattern = 'eth0',
