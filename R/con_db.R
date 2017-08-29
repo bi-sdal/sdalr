@@ -21,11 +21,18 @@
 #' df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")
 #' head(df)
 #' }
-con_db <- function(dbname, user, driver = 'PostgreSQL',
+con_db <- function(dbname, user = NULL, driver = 'PostgreSQL',
                    host = 'postgresql', port = 5432, close_existing_cons = TRUE,
                    pass = NULL) {
+
+    if (is.null(user)) {
+        user <- getPass::getPass("database username")
+    } else {
+        user <- user
+    }
+
     if (is.null(pass)) {
-        pass <- .rs.askForPassword("database password")
+        pass <- getPass::getPass("database password")
     } else {
         pass <- pass
     }
@@ -35,7 +42,6 @@ con_db <- function(dbname, user, driver = 'PostgreSQL',
     } else{
         stop("Unknown driver")
     }
-
 }
 
 #' Makes a connection to a postgresql database
