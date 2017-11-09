@@ -4,13 +4,14 @@
 #' This function is really a high-level function that calls the corresponding
 #' \code{con_db} function for a particular database driver.
 #'
-#' @param dbname the name of the database you want to connect to
-#' @param user the username for the database connection
+#' @param dbname the name of the database you want to connect to, defaults to current user
+#' @param user the username for the database connection, defaults to current user
 #' @param driver the database driver to use, defaults to 'PostgreSQL'
 #' @param host where the database is running, defaults to 'postgresql'
 #' @param port the port where the database in running, defaults to '5432' for PostgreSQL
 #' @param close_existing_cons whether to close existing database connections, defaults to 'TRUE'
-#' @param pass optional. directly pass a password to the database without rstudio password prompt
+#' @param pass optional. if .dbpass exists in users home directory, password will be read from file, 
+#' else directly pass a password to the database without rstudio password prompt
 #' @return database connection
 #' @export
 #' @examples
@@ -21,11 +22,17 @@
 #' df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")
 #' head(df)
 #' }
-con_db <- function(dbname, user = NULL, driver = 'PostgreSQL',
+con_db <- function(dbname = Sys.getenv("LOGNAME"), user = Sys.getenv("LOGNAME"), driver = 'PostgreSQL',
                    host = 'postgresql', port = 5432, close_existing_cons = TRUE,
                    pass = NULL) {
 
-    if (is.null(user)) {
+  if (is.null(pass)) {
+    if (file.exists(sprintf("/home/%s/.dbpass", Sys.getenv("LOGNAME")))) {
+      pass <- readLines(db_pass_file)
+    }
+  }  
+  
+  if (is.null(user)) {
         user <- getPass::getPass("database username")
     } else {
         user <- user
