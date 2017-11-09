@@ -28,7 +28,7 @@ con_db <- function(dbname = Sys.getenv("LOGNAME"), user = Sys.getenv("LOGNAME"),
 
   if (is.null(pass)) {
     if (file.exists(sprintf("/home/%s/.dbpass", Sys.getenv("LOGNAME")))) {
-      pass <- readLines(db_pass_file)
+      pass <- readLines(sprintf("/home/%s/.dbpass", Sys.getenv("LOGNAME")))
     }
   }  
   
