@@ -40,3 +40,18 @@ make install
 echo "/usr/local/lib" >> /etc/ld.so.conf.d/R-dependencies-x86_64.conf && \
     ldconfig
 ```
+
+### Random code snippets to get things working
+
+build and reload
+
+```shell
+R CMD INSTALL --no-multiarch --with-keep.source -l ~/R/x86_64-pc-linux-gnu-library/3.3/ .
+
+```
+
+document
+
+```r
+devtools::document(roclets=c('rd', 'collate', 'namespace', 'vignette'))
+```
