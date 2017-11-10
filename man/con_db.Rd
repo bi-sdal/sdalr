@@ -4,7 +4,7 @@
 \alias{con_db}
 \title{Makes a connection to a database.}
 \usage{
-con_db(dbname, user, driver = "PostgreSQL", host = "postgresql",
+con_db(dbname, user = NULL, driver = "PostgreSQL", host = "postgresql",
   port = 5432, close_existing_cons = TRUE, pass = NULL)
 }
 \arguments{
