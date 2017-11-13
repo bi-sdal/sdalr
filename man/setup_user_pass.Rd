@@ -18,7 +18,7 @@ setup_user_pass(username = Sys.info()["user"], password = NULL,
 
 \item{vault:}{string, location of the vault, defaults to '/home/sdal/projects/sdal/vault'}
 
-\item{secret_name:}{string, the name of the secret to be stored, defaults to 'ldap'}
+\item{secret_name:}{string, the name of the secret to be stored, defaults to your username}
 }
 \description{
 If you need to update a username/password please see: `update_user_pass``

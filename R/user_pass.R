@@ -26,7 +26,7 @@ library(getPass)
 #' @param password: string, defaults to NULL which will prompt you for your password
 #' @param public_key: string, the location of the public key, defaults to '~/.ssh/id_rsa.pub'
 #' @param vault: string, location of the vault, defaults to '/home/sdal/projects/sdal/vault'
-#' @param secret_name: string, the name of the secret to be stored, defaults to 'ldap'
+#' @param secret_name: string, the name of the secret to be stored, defaults to your username
 #'
 #' @return NULL
 #' @export
@@ -77,7 +77,7 @@ update_user_pass <- function(username = Sys.info()['user'],
 get_my_username <- function(secret_name = Sys.info()['user'],
                             key = local_key(),
                             vault = '/home/sdal/projects/sdal/vault') {
-    return(get_secret(secret_name, key , vault)['username'])
+    return(get_secret(secret_name, key , vault)['username.user'])
 }
 
 #' Get the password of the current user
