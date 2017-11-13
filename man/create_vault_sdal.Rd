@@ -6,6 +6,9 @@
 \usage{
 create_vault_sdal(vault = "/home/sdal/projects/sdal/vault/")
 }
+\arguments{
+\item{vault, }{string, location of the vault, defaults to /home/sdal/projects/sdal/vault}
+}
 \description{
 mainly useful for testing or after deleting the vault
 }

@@ -4,9 +4,10 @@
 \alias{setup_user_pass}
 \title{Initial setup of secret vault with username and password secrets}
 \usage{
-setup_user_pass(username = Sys.info()["user"], password = NULL,
+setup_user_pass(username = unname(Sys.info()["user"]), password = NULL,
   public_key = "~/.ssh/id_rsa.pub",
-  vault = "/home/sdal/projects/sdal/vault", secret_name = "ldap")
+  vault = "/home/sdal/projects/sdal/vault",
+  secret_name = unname(Sys.info()["user"]))
 }
 \arguments{
 \item{username:}{string, the username, defaults to the user of the current R session}
@@ -17,7 +18,7 @@ setup_user_pass(username = Sys.info()["user"], password = NULL,
 
 \item{vault:}{string, location of the vault, defaults to '/home/sdal/projects/sdal/vault'}
 
-\item{secret_name:}{string, the name of the secret to be stored, defaults to 'ldap'}
+\item{secret_name:}{string, the name of the secret to be stored, defaults to your username}
 }
 \description{
 If you need to update a username/password please see: `update_user_pass``
