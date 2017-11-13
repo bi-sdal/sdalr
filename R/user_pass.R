@@ -34,7 +34,7 @@ setup_user_pass <- function(username = Sys.info()['user'],
                             password = NULL,
                             public_key = '~/.ssh/id_rsa.pub',
                             vault = '/home/sdal/projects/sdal/vault',
-                            secret_name = 'ldap') {
+                            secret_name = Sys.info()['user']) {
     if (!file.exists('~/.ssh/id_rsa.pub')) {
         stop(
             cat(
@@ -65,7 +65,8 @@ setup_user_pass <- function(username = Sys.info()['user'],
 #' @export
 update_user_pass <- function(username = Sys.info()['user'],
                              password = NULL,
-                             secret_name = 'ldap', vault = '/home/sdal/projects/sdal/vault') {
+                             secret_name = Sys.info()['user'],
+                             vault = '/home/sdal/projects/sdal/vault') {
     secret_to_keep <- .secret_to_keep(username, password)
 
     update_secret(secret_name, secret_to_keep, key = local_key(), vault = vault)
@@ -73,12 +74,16 @@ update_user_pass <- function(username = Sys.info()['user'],
 
 #' Get the username of the current user
 #' @export
-get_my_username <- function(secret_name = 'ldap', key = local_key(), vault = '/home/sdal/projects/sdal/vault') {
+get_my_username <- function(secret_name = Sys.info()['user'],
+                            key = local_key(),
+                            vault = '/home/sdal/projects/sdal/vault') {
     return(get_secret(secret_name, key , vault)['username'])
 }
 
 #' Get the password of the current user
 #' @export
-get_my_password <- function(secret_name = 'ldap', key = local_key(), vault = '/home/sdal/projects/sdal/vault') {
+get_my_password <- function(secret_name = Sys.info()['user'],
+                            key = local_key(),
+                            vault = '/home/sdal/projects/sdal/vault') {
     return(get_secret(secret_name, key , vault)['password'])
 }

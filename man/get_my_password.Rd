@@ -4,7 +4,7 @@
 \alias{get_my_password}
 \title{Get the password of the current user}
 \usage{
-get_my_password(secret_name = "ldap", key = local_key(),
+get_my_password(secret_name = Sys.info()["user"], key = local_key(),
   vault = "/home/sdal/projects/sdal/vault")
 }
 \description{

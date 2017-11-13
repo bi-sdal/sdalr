@@ -6,7 +6,8 @@
 \usage{
 setup_user_pass(username = Sys.info()["user"], password = NULL,
   public_key = "~/.ssh/id_rsa.pub",
-  vault = "/home/sdal/projects/sdal/vault", secret_name = "ldap")
+  vault = "/home/sdal/projects/sdal/vault",
+  secret_name = Sys.info()["user"])
 }
 \arguments{
 \item{username:}{string, the username, defaults to the user of the current R session}
