@@ -28,13 +28,17 @@ library(getPass)
 #' @param vault: string, location of the vault, defaults to '/home/sdal/projects/sdal/vault'
 #' @param secret_name: string, the name of the secret to be stored, defaults to your username
 #'
+#' @import secret
+#' @import getPass
+#'
 #' @return NULL
 #' @export
 setup_user_pass <- function(username = unname(Sys.info()['user']),
                             password = NULL,
                             public_key = '~/.ssh/id_rsa.pub',
                             vault = '/home/sdal/projects/sdal/vault',
-                            secret_name = unname(Sys.info()['user'])) {
+                            secret_name = unname(Sys.info()['user']),
+                            verbose = FALSE) {
     if (!file.exists('~/.ssh/id_rsa.pub')) {
         stop(
             cat(
@@ -52,7 +56,28 @@ setup_user_pass <- function(username = unname(Sys.info()['user']),
     }
     add_user(username, public_key, vault)
     secret_to_keep <- .secret_to_keep(user = username, pass = password)
+
+    if (verbose) {
+        print("setting up user pass")
+
+        print('secret to keep:')
+        print(secret_to_keep)
+        print('secret_name:')
+        print(secret_name)
+        print('username:')
+        print(username)
+        print('vault:')
+        print(vault)
+    }
+
     add_secret(secret_name, secret_to_keep, users = username, vault = vault)
+
+    if (verbose) {
+        print('getting secrets from one just created')
+        print(get_secret(secret_name, local_key() , vault))
+        print(get_secret(secret_name, local_key() , vault)['username'])
+        print(get_secret(secret_name, local_key() , vault)['password'])
+    }
 }
 
 #' Update the username and password saved in the vault
@@ -82,7 +107,12 @@ update_user_pass <- function(username = unname(Sys.info()['user']),
 #' @export
 get_my_username <- function(secret_name = unname(Sys.info()['user']),
                             key = local_key(),
-                            vault = '/home/sdal/projects/sdal/vault') {
+                            vault = '/home/sdal/projects/sdal/vault',
+                            verbose = FALSE) {
+    if (verbose) {
+        print('all secrets:')
+        print(get_secret(secret_name, key , vault))
+    }
     return(unname(get_secret(secret_name, key , vault)['username']))
 }
 
