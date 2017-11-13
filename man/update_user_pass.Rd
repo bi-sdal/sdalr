@@ -5,8 +5,8 @@
 \title{Update the username and password saved in the vault
 Typically used after you change your LDAP password}
 \usage{
-update_user_pass(username = Sys.info()["user"], password = NULL,
-  secret_name = Sys.info()["user"],
+update_user_pass(username = unname(Sys.info()["user"]), password = NULL,
+  secret_name = unname(Sys.info()["user"]),
   vault = "/home/sdal/projects/sdal/vault")
 }
 \arguments{

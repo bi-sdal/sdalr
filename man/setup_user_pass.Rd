@@ -4,10 +4,10 @@
 \alias{setup_user_pass}
 \title{Initial setup of secret vault with username and password secrets}
 \usage{
-setup_user_pass(username = Sys.info()["user"], password = NULL,
+setup_user_pass(username = unname(Sys.info()["user"]), password = NULL,
   public_key = "~/.ssh/id_rsa.pub",
   vault = "/home/sdal/projects/sdal/vault",
-  secret_name = Sys.info()["user"])
+  secret_name = unname(Sys.info()["user"]))
 }
 \arguments{
 \item{username:}{string, the username, defaults to the user of the current R session}

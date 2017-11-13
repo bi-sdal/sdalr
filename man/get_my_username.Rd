@@ -4,8 +4,18 @@
 \alias{get_my_username}
 \title{Get the username of the current user}
 \usage{
-get_my_username(secret_name = Sys.info()["user"], key = local_key(),
+get_my_username(secret_name = unname(Sys.info()["user"]), key = local_key(),
   vault = "/home/sdal/projects/sdal/vault")
+}
+\arguments{
+\item{secret_name, }{string, the secret to look up, defaults to the current username}
+
+\item{key, }{string, location of the private key, defaults to local_key(), ~/.ssh/id_rsa}
+
+\item{vault, }{string, location of the vault, defualts to /home/sdal/projects/sdal/vault}
+}
+\value{
+character, the username
 }
 \description{
 Get the username of the current user
