@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' get_openhub_keys_df()
-get_openhub_keys_df <- function(file = '/home/sdal/projects/keys/ohloh_keys.csv') {
+get_openhub_keys_df <- function(file = '/home/sdal/projects/sdal/api_keys/ohloh_keys.csv') {
     return(read.csv(file, stringsAsFactors = FALSE))
 }
 
@@ -37,7 +37,7 @@ get_openhub_keys_df <- function(file = '/home/sdal/projects/keys/ohloh_keys.csv'
 get_openhub_key <- function(key_index = 1,
                             key_id = NULL,
                             key_name = NULL,
-                            file = '/home/sdal/projects/keys/ohloh_keys.csv') {
+                            file = '/home/sdal/projects/sdal/api_keys/ohloh_keys.csv') {
     oh_key_df <- read.csv(file, stringsAsFactors = FALSE)
     # if key_id is null then key_name should also be null
     # and vice versa

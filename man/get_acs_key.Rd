@@ -16,7 +16,9 @@ string
 So it's not accidentently pushed in the code
 }
 \examples{
+\dontrun{
 get_acs_key()
 
 get_acs_key('~/acs_api_key.txt')
+}
 }

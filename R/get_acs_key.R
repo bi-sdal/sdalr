@@ -6,9 +6,11 @@
 #' @return string
 #' @export
 #' @examples
+#' \dontrun{
 #' get_acs_key()
 #'
 #' get_acs_key('~/acs_api_key.txt')
+#' }
 get_acs_key <- function(file='/home/sdal/projects/keys/acs_api_key.txt') {
     paste(readLines(file), collapse = " ")
 }

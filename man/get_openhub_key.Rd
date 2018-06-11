@@ -5,7 +5,7 @@
 \title{Gets a single OpenHub API key}
 \usage{
 get_openhub_key(key_index = 1, key_id = NULL, key_name = NULL,
-  file = "/home/sdal/projects/keys/ohloh_keys.csv")
+  file = "/home/sdal/projects/sdal/api_keys/ohloh_keys.csv")
 }
 \arguments{
 \item{key_index}{the row index of the key (can also be vector of integers), defaults to 1}

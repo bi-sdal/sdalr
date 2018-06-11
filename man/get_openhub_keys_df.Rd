@@ -4,7 +4,8 @@
 \alias{get_openhub_keys_df}
 \title{Retrieves the OpenHub keys from members in the lab}
 \usage{
-get_openhub_keys_df(file = "/home/sdal/projects/keys/ohloh_keys.csv")
+
+  get_openhub_keys_df(file = "/home/sdal/projects/sdal/api_keys/ohloh_keys.csv")
 }
 \arguments{
 \item{file}{location of the google maps key file by default it points to the location in the sdal server}

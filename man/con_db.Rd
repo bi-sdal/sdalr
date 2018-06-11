@@ -38,8 +38,9 @@ This function is really a high-level function that calls the corresponding
 \code{con_db} function for a particular database driver.
 }
 \examples{
+\dontrun{
 con_db('sample_db', 'dan', 'isawesome')
-
+}
 \dontrun{
 con <- sdalr::con_db(dbname = 'arlington', user = 'chend')
 df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")

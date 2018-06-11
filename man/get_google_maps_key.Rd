@@ -17,7 +17,9 @@ string
 So it's not accidentently pushed in the code
 }
 \examples{
+\dontrun{
 get_google_maps_key()
 
 get_google_maps_key('~/google_maps_api_key.txt')
+}
 }
