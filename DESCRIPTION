@@ -1,7 +1,7 @@
 Package: sdalr
 Type: Package
 Title: Convenience functions for the Social and Decision Analytics Lab
-Version: 0.8.0
+Version: 0.9.0
 Authors@R: c(
     person("Daniel", "Chen", email = "chend@vt.edu", role = "cre"),
     person("Aaron", "Schroeder", email = "aschroed@bi.vt.edu", role = "aut"))
@@ -19,22 +19,7 @@ Imports:
     RPostgreSQL,
     jsonlite,
     data.table,
-    geosphere,
-    sp,
-    maps,
-    maptools,
-    tmaptools,
     tools,
-    acs,
     dplyr,
-    stringr,
-    tigris
-Suggests:
-    devtools,
-    memoise,
-    digest,
-    roxygen2,
-    tidyverse,
-    ggplot2,
-    testthat
+    stringr
 RoxygenNote: 6.0.1
