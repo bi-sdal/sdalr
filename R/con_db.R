@@ -20,8 +20,9 @@
 #' @return database connection
 #' @export
 #' @examples
+#' \dontrun{
 #' con_db('sample_db', 'dan', 'isawesome')
-#'
+#' }
 #' \dontrun{
 #' con <- sdalr::con_db(dbname = 'arlington', user = 'chend')
 #' df <- DBI::dbGetQuery(con, "SELECT * FROM fire.medic_unit_movement_summary_2013")
