@@ -21,5 +21,7 @@ Imports:
     data.table,
     tools,
     dplyr,
-    stringr
+    stringr,
+    testthat,
+    ggplot2
 RoxygenNote: 6.0.1
