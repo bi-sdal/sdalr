@@ -37,6 +37,10 @@ Creates a connection to a database.
 This function is really a high-level function that calls the corresponding
 \code{con_db} function for a particular database driver.
 }
+\details{
+Best way to use this function is to make sure your username and passwords are stored safely.
+You can do this by running `sdalr::setup_user_pass` (if you mistyped your password run `sdalr::update_user_pass``).
+}
 \examples{
 \dontrun{
 con_db('sample_db', 'dan', 'isawesome')

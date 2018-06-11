@@ -4,6 +4,9 @@
 #' This function is really a high-level function that calls the corresponding
 #' \code{con_db} function for a particular database driver.
 #'
+#' Best way to use this function is to make sure your username and passwords are stored safely.
+#' You can do this by running `sdalr::setup_user_pass` (if you mistyped your password run `sdalr::update_user_pass``).
+#'
 #' @param dbname the name of the database you want to connect to, defaults to current user
 #' @param user the username for the database connection, defaults to current user
 #' @param driver the database driver to use, defaults to 'PostgreSQL'
