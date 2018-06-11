@@ -16,5 +16,5 @@ StripTrailingWhitespace: Yes
 
 BuildType: Package
 PackageUseDevtools: Yes
-PackageInstallArgs: --no-multiarch --with-keep.source
+PackageInstallArgs: --no-multiarch --with-keep.source -l ~/R/x86_64-pc-linux-gnu-library/3.4/
 PackageRoxygenize: rd,collate,namespace,vignette
