@@ -5,7 +5,7 @@
 \title{Get the username of the current user}
 \usage{
 get_my_username(secret_name = unname(Sys.info()["user"]), key = local_key(),
-  vault = "/home/sdal/projects/sdal/vault")
+  vault = "/home/sdal/projects/sdal/vault", verbose = FALSE)
 }
 \arguments{
 \item{secret_name, }{string, the secret to look up, defaults to the current username}
