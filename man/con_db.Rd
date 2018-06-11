@@ -4,23 +4,30 @@
 \alias{con_db}
 \title{Makes a connection to a database.}
 \usage{
-con_db(dbname, user = NULL, driver = "PostgreSQL", host = "postgresql",
-  port = 5432, close_existing_cons = TRUE, pass = NULL)
+con_db(dbname = Sys.getenv("LOGNAME"), user = Sys.getenv("LOGNAME"),
+  driver = "PostgreSQL", host = "postgresql", port = 5432,
+  close_existing_cons = TRUE, pass = NULL)
 }
 \arguments{
-\item{dbname}{the name of the database you want to connect to}
+\item{dbname}{the name of the database you want to connect to, defaults to current user}
 
-\item{user}{the username for the database connection}
+\item{user}{the username for the database connection, defaults to current user}
 
 \item{driver}{the database driver to use, defaults to 'PostgreSQL'}
 
-\item{host}{where the database is running, defaults to 'postgresql'}
+\item{host}{where the database is running, defaults to 'postgresql (the docker container name)'}
 
 \item{port}{the port where the database in running, defaults to '5432' for PostgreSQL}
 
-\item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'}
+\item{close_existing_cons}{whether to close existing database connections, defaults to 'TRUE'.
+You need to set this to FALSE if
+you are planning to make simultaneous database connections.}
 
-\item{pass}{optional. directly pass a password to the database without rstudio password prompt}
+\item{pass}{optional, defaults to NULL.
+If .dbpass exists in users home directory, password will be read from file (not advised).
+It will then try to run the `sdalr::get_my_password()` function,
+if that fails it will prompt the user for a password.
+You can also directly pass in a password as a string (not advised).}
 }
 \value{
 database connection
