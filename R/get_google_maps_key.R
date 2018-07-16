@@ -11,6 +11,6 @@
 #'
 #' get_google_maps_key('~/google_maps_api_key.txt')
 #' }
-get_google_maps_key <- function(file = '/home/sdal/projects/keys/google_maps_api_key.txt') {
+get_google_maps_key <- function(file = '/home/sdal/projects/sdal/api_keys/google_maps_api_key.txt') {
     paste(readLines(file), collapse = " ")
 }
